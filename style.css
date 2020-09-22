@@ -1,0 +1,10 @@
+@font-face {
+  font-family: satify;
+  src: url(Font/Satisfy-Regular.ttf);
+}
+h1 {
+  font-family: satify;
+}
+.jumbotron {
+  background-color: white;
+}
