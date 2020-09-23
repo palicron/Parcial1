@@ -8,12 +8,14 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap"
       rel="stylesheet"
     />
+   
+
     <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -24,7 +26,13 @@
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
       crossorigin="anonymous"
     ></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
@@ -38,12 +46,13 @@
     <header>
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-6">
+          <div class="col-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand"> <h1>Restaurant & Lounge</h1></a>
                 <div >
                     <img
                       class="pull-right img-responsive"
+                      onclick="toggleshop()";
                       src="Image/1EKrQIi.png"
                       width="10%"
                       height="100%"
@@ -61,14 +70,16 @@
         />
       </div>
       <hr />
+      
       <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <div class="collapse navbar-collapse " id="navbarResposive">
             <ul class="navbar-nav ml-3 text-light">
               <li class="nav-item">               
-                  <a class="nav-link" onclick="buildBurgers(0)" >  Burgers</a>
+                
+                <a class="nav-link "  data-toggle="collapse" data-target="#ColapseContainer1" onclick="buildBurgers(0)" >  Burgers</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" onclick="buildBurgers(1)" >  Tacos</a>
+                  <a class="nav-link"  onclick="buildBurgers(1)" >  Tacos</a>
                </li>
               <li class="nav-item">
                   <a class="nav-link" onclick="buildBurgers(2)"> Salads </a>
@@ -84,19 +95,71 @@
       </nav>
     </header>
     <main>
+    <div id="MenuCont" class="col-12"> 
         <hr>
         <h1 class="text-center"> Burgers</h1>
         <hr>
-     <div class="container-fluid ">
-         <div id="Card-Cont"class="row align-items-baseline">
+
+       <div  class="container-fluid  collapsing.show">
+         <div id="Card-Cont"class="row align-items-baseline col-12">
          </div>
      </div>
+    </div>
+<div id="ShopContener" class =" col-12 " >
+    <div  class="container-fluid  ">
+        <div  class =" col-12 text-center" >
+            <h3>Order detail</h3>
+        </div>
+     <table class="table table-striped">
+        <thead>
+          <tr>
+            <th data-column="Itme" data-order="desc">Item</th>
+            <th data-column="Qt" data-order="desc">Qty.</th>
+            <th data-column="Description" data-order="desc">Description</th>
+            <th data-column="Unit" data-order="desc">Unit price</th>
+            <th data-column="Amount" data-order="desc">Amount</th>
+          </tr>
+        </thead>
+        <tbody id="myTable"></tbody>
+      </table>
+ <div class="row">
+    <div  class =" col-8 " >
+       <p>Total:</p>
+    </div>
+    <div  class ="col-2 fa-pull-left" >
+      <button class="buttonss button btn-lg btn-danger" data-toggle="modal" data-target="#exampleModal">Cancel</button>      
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="cancel" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class ="col-2 aling-items-left "  width="100%">
+        <button id="confirm" class="buttonss button btn-lg btn-primary">Confirm Order </button>      
+      </div>
+</div>
+</div>
+</div>
      <br>
-     <br><br>
+     <br>
     </main>
     <footer>
-        <div class="container-fluid ">
-            <div class="row text-center">
+        <div  class="container-fluid  ">
+            <div class="row text-center ">
               <div class=" col-12">            
                 <p>Contact us:+57 3102105253 - info@restaurant.com - @restaurant</p>          
               </div>
