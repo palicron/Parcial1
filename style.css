@@ -1,15 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @font-face {
   font-family: satify;
   src: url(Font/Satisfy-Regular.ttf);
 }
-h1 {
+html {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+.navbar-brand {
   font-family: satify;
 }
-.jumbotron {
-  background-color: white;
+h2 {
+  font-weight: bold;
+  font-size: 250%;
+}
+h5 {
+  font-weight: bold;
+  font-size: 150%;
 }
 .card-img-top {
   width: 100%;
-  height: 15vw;
+  height: 13vw;
   object-fit: cover;
+}
+
+.navbar p,
+img {
+  color: rgb(155, 155, 155);
+  font-weight: bolder;
+  padding: 5px;
+}
+.navbar {
+  background-color: rgb(35, 35, 46);
+  padding-top: 15px;
+  padding-bottom: 1px;
+}
+
+.navbar .nav-link p:hover {
+  color: #a55902;
+}
+.card #price {
+  font-weight: bolder;
+}
+.card #Add {
+  color: rgb(155, 155, 155);
+  font-weight: bolder;
+}
+footer {
+  color: rgb(100, 100, 100);
+  font-weight: bold;
+}
+#Total {
+  font-weight: bolder;
+}
+#confirm,
+#cancel {
+  color: rgb(58, 58, 58);
+  font-weight: bolder;
+  background-color: rgb(255, 239, 218);
+  border-color: black;
+}
+#can #cancelTheCancel {
+  color: rgb(58, 58, 58);
+  font-weight: bolder;
+  border-color: gray;
 }

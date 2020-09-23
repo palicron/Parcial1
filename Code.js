@@ -76,10 +76,10 @@ buildBurgers = function (index) {
       '" alt="Card image cap">';
     Newcard += ' <div class="card-body">';
     Newcard += ' <h5 id="name"class="card-title">' + Burgers[i].name + "</h5>";
-    Newcard += '<p class="card-text">' + Burgers[i].description + "</p>";
-    Newcard += '<p class="card-text"> ' + "$ " + Burgers[i].price + "</p>";
+    Newcard += '<p  class="card-text">' + Burgers[i].description + "</p>";
     Newcard +=
-      ' <a id="Add" type="submit" class="btn btn-primary bg-dark">Add to car</a>';
+      '<p id="price"class="card-text"> ' + "$ " + Burgers[i].price + "</p>";
+    Newcard += ' <a id="Add" type="submit" class="btn  bg-dark">Add to car</a>';
     Newcard += " </div> </div> </div> ";
 
     $("#Card-Cont").append(Newcard);
@@ -133,7 +133,7 @@ const popularTabla = () => {
       parseInt(order[i].unitPrice.replace("$", "")) *
       parseInt(order[i].quantity);
   }
-  total.innerHTML = "ToTal: " + sum;
+  total.innerHTML = "Total: " + sum;
   list.innerHTML = numItems + " Items";
 };
 document.addEventListener("DOMContentLoaded", () => {
